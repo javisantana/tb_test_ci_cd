@@ -6,7 +6,7 @@ on:
         - main
 
 jobs:
-  run_tests_tinybird:
+  tinybird_deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -20,6 +20,8 @@ jobs:
 
     - name: info
       run: tb --version && tb workspace current
+      env:
+        TOKEN: ${{ secrets.tb_pro_token }}
 
     - name: deploy
       run: tb push --push-deps --yes --force
