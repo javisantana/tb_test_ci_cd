@@ -34,3 +34,28 @@ jobs:
       env:
         TB_TOKEN: ${{ secrets.tb_token }}
 
+  tinybird_deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' }}
+    needs: run_tests_tinybird
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.7'
+        architecture: 'x64'
+
+    - name: pip packages
+      run: pip install tinybird-cli
+
+    - name: info
+      run: tb --version && tb workspace current
+      env:
+        TB_TOKEN: ${{ secrets.tb_pro_token }}
+
+    - name: deploy
+      run: tb push --push-deps --yes --force
+      env:
+        TB_TOKEN: ${{ secrets.tb_pro_token }}
+
+
