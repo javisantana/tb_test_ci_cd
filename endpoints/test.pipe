@@ -1,5 +1,5 @@
 
 
-NODE test
+NODE testing_endpoint
 SQL >
     select 1 as n
