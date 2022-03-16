@@ -2,4 +2,4 @@
 
 NODE testing_endpoint
 SQL >
-    select 1 as n
+    select 2 as n
