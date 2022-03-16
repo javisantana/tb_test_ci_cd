@@ -2,9 +2,6 @@ name: tinybird
 
 on:
   push:
-    branches:
-      - '*'
-      - '!main'
 
 jobs:
   run_tests_tinybird:
