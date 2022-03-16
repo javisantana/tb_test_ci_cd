@@ -27,7 +27,7 @@ jobs:
     - name: push-project
       run: tb push --push-deps --fixtures
       env:
-        TOKEN: ${{ secrets.tb_token }}
+        TB_TOKEN: ${{ secrets.tb_token }}
 
     - name: tests
       run: python -m unittest tests/*.py
