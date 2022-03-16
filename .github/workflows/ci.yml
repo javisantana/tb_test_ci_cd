@@ -36,7 +36,7 @@ jobs:
 
   tinybird_deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     needs: run_tests_tinybird
     steps:
     - uses: actions/checkout@master
