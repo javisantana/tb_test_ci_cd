@@ -21,11 +21,11 @@ jobs:
     - name: info
       run: tb --version && tb workspace current
       env:
-        TOKEN: ${{ secrets.tb_pro_token }}
+        TB_TOKEN: ${{ secrets.tb_pro_token }}
 
     - name: deploy
       run: tb push --push-deps --yes --force
       env:
-        TOKEN: ${{ secrets.tb_pro_token }}
+        TB_TOKEN: ${{ secrets.tb_pro_token }}
 
 
